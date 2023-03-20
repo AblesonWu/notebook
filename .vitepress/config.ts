@@ -1,4 +1,6 @@
 import { defineConfig } from "vitepress";
+import nav from "./config/nav";
+import sidebars from "./config/sidebars";
 
 export default defineConfig({
   title: "Ranwu's Blog",
@@ -6,22 +8,8 @@ export default defineConfig({
   srcDir: "src",
   themeConfig: {
     outline: "deep",
-    nav: [
-      {
-        text: "前端开发",
-        items: [{ text: "测试", link: "前端开发/测试/Cypress" }],
-      },
-      {
-        text: "VitePress",
-        link: "VitePress.md",
-      },
-    ],
-    sidebar: {
-      "/前端开发/测试/": [
-        { text: "Cypress", link: "/前端开发/测试/Cypress" },
-        { text: "Jest", link: "/前端开发/测试/Jest" },
-      ],
-    },
+    nav: nav,
+    sidebar: sidebars,
     socialLinks: [{ icon: "github", link: "https://github.com/vuejs/vitepress" }],
   },
 });

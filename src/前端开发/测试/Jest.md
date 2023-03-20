@@ -1,3 +1,11 @@
+---
+
+title: Jest
+author: ranwu
+date: 20230-3-20
+
+---
+
 ## 1. 配置
 
 Jest 配置文件（`jest.config.js`）默认是放在根目录下的，在配置文件中提供了配置项`setupFilesAfterEnv`
