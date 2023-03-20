@@ -4,7 +4,6 @@ import DefaultTheme from "vitepress/theme";
 import '../assets/icons';
 import SvgIcon from "../plugins/svg-icon.vue";
 
-
 const customTheme: Theme = {
   ...DefaultTheme,
   Layout,

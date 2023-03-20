@@ -1,18 +1,17 @@
 <template>
   <Layout>
     <template #doc-before>
-      <h1 class="page-title">
+      <div class="page-title">
         <span></span>
-        <p>{{ frontmatter.title }}</p>
-      </h1>
+        <em>{{ frontmatter.title }}</em>
+      </div>
       <span class="page-info">{{ frontmatter.author }}</span>
       <span class="page-info">{{ frontmatter.date }}</span>
     </template>
-
-    <template #aside-bottom>
-      <button class="back-to-top"><svg-icon icon-name="icon-Other-29" class-name="back-to-top__icon"/></button>
-    </template>
   </Layout>
+  <button class="back-to-top">
+    <svg-icon icon-name="icon-Other-29" class-name="back-to-top__icon" color="#ffffff"/>
+  </button>
 </template>
 <script lang="ts" setup>
 import DefaultTheme from "vitepress/theme";
@@ -38,12 +37,17 @@ const {frontmatter, theme, page} = useData();
 }
 
 .back-to-top {
-  position: absolute;
+  position: fixed;
   bottom: 10px;
   right: 10px;
+  width: 50px;
+  height: 50px;
 
   &__icon {
-    color: red;
+    text-align: center;
+    height: 30px !important;
+    width: 30px !important;
+    margin-left: 10px;
   }
 }
 </style>
