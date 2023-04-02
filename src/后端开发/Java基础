@@ -74,3 +74,18 @@ jenv add $HOME/java/jdk11
 
 - Global ==> `jenv global 13`
 - Local(在某个工作目录下设置JDK版本，会在当前目录下创建`.java-verison`文件) ==> `jenv local 17`
+
+## 2. Maven的实用
+
+### 1. 阿里云源配置
+
+打开Maven的配置文件，例如：`conf/settings.xml`，在`<mirrors></mirrors>` 标签中添加mirror子节点：
+
+```xml
+<mirror>
+    <id>aliyunmaven</id>
+    <mirrorOf>*</mirrorOf>
+    <name>阿里云公共仓库</name>
+    <url>https://maven.aliyun.com/repository/public</url>
+</mirror>
+```
