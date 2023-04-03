@@ -42,6 +42,22 @@
   console.log('==> config:', envConf);
   ```
 
+这种方式会以健值对的方式将所有配置参数返回给用户，这时可以利用webpack中提供的DefinePlugin方法配置到环境变量中。
+这种方式和使用插件`dotenv-webpack` 达到的效果是一样的。具体配置方式如下：
+
+```javascript
+const webpack = require('webpack');
+
+// 和上面的方法相同获取到配置参数
+module.exports = {
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(envConf),
+    })
+  ]
+}
+```
+
 **2.** 利用`doting-webpack` 将配置过程放到webpack中
 
 ```javascript
