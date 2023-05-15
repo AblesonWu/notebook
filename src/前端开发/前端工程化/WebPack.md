@@ -82,5 +82,16 @@ module.exports = {
 };
 
 ```
+*如果不利用`dotenv-webpack`使用DefinePlugin也可以实现同样的效果，具体如下：*
 
-现在在项目中就可以直接使用环境变量而不需要额外的动作
+```javascript
+const webpack = require('webpack');
+
+module.exports = {
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringfy(envConf),
+    })
+  ]
+}
+```
