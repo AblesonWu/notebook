@@ -1,6 +1,4 @@
-# VSCode使用
-
-## Markdown
+# Markdown
 
 ### 1. 添加emoji
 
@@ -50,3 +48,51 @@ Emoji图标可以为markdown文档添加更多色彩， 推荐插件`emojisense`
 ### 3. 插入图片
 
 安装插件 ['Markdown Image'](https://marketplace.visualstudio.com/items?itemName=hancel.markdown-image)
+
+
+
+# 插件
+
+```markdown
+alefragnani.project-manager
+christian-kohler.npm-intellisense
+christian-kohler.path-intellisense
+codezombiech.gitignore
+dbaeumer.vscode-eslint
+donjayamanne.githistory
+DotJoshJohnson.xml
+DSKWRK.vscode-generate-getter-setter
+dsznajder.es7-react-js-snippets
+ecmel.vscode-html-css
+EditorConfig.EditorConfig
+esbenp.prettier-vscode
+formulahendry.auto-close-tag
+formulahendry.auto-rename-tag
+GitHub.vscode-pull-request-github
+jock.svg
+leizongmin.node-module-intellisense
+mhutchie.git-graph
+mikestead.dotenv
+ms-vscode.vscode-typescript-next
+patbenatar.advanced-new-file
+PKief.material-icon-theme
+pranaygp.vscode-css-peek
+redhat.fabric8-analytics
+redhat.java
+redhat.vscode-xml
+ritwickdey.LiveServer
+sohibe.java-generate-setters-getters
+SonarSource.sonarlint-vscode
+steoates.autoimport
+vincaslt.highlight-matching-tag
+VisualStudioExptTeam.intellicode-api-usage-examples
+VisualStudioExptTeam.vscodeintellicode
+vscjava.vscode-java-debug
+vscjava.vscode-java-dependency
+vscjava.vscode-java-pack
+vscjava.vscode-java-test
+vscjava.vscode-lombok
+vscjava.vscode-maven
+Vue.volar
+```
+
