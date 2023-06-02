@@ -7,6 +7,25 @@
 - [No input zoom in Safari on iPhone, the pixel perfect way](https://thingsthemselves.com/no-input-zoom-in-safari-on-iphone-the-pixel-perfect-way/)
 - [16px or Large Text Prevent iOS Form Zoom](https://css-tricks.com/16px-or-larger-text-prevents-ios-form-zoom/#:~:text=If%20the%20font-size%20of%20an%20%3Cinput%3E%20is%2016px,wants%20you%20to%20see%20what%20you%20are%20doing.)
 
+## 2. Override inline styles with css
+
+一般情况下，我们仅仅通过增加权重等方式就可以覆盖内联样式，但是在某些情况下，由于样式还会受到第三方JS的影响，如果增加权重样式无法被覆盖。这时通过css 直接修改内联样式就会很有用。
+
+下面是HTML文件示例：
+
+```html
+<div style="background: red;">
+  The inline styles for this div should make it red
+</div>
+```
+
+css 样式修改内联样式：
+
+```css
+div[style] {
+  background: yellow;
+}
+```
 
 
 # CSS变量
@@ -142,4 +161,3 @@ a {
 npm test
 
 ```
-
