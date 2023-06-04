@@ -25,11 +25,15 @@ export default defineConfig({
 
 <span style="font-size:1.35rem; color: purple">1. 剔除依赖</span>
 
+:smile_cat: <code>external: ['react']</code>
+
 默认情况下tsup会将所有保存在`dependencies` 和`peerDependencies`下的依赖全部删除，而仅仅添加已经`import`的模块，你可以使用`--external <module|pkgJson>` 将模块标记为为external的。
 
 
 
 <span style="font-size:1.35rem; color: purple">2. 生成申明文件</span>
+
+:smile_cat: <code>dts: true</code>
 
 对于Typescript文件可以使用 `--dts`在在输出结果中生成类型声明文件， 例如：`./dist/index.d.ts`。 对于多个入口文件，默认也会生成多个对应的类型声明文件。所以如果要想将多个声明文件放到一个位置，可以指明声明文件路径，例如：`--dts src/index.ts`
 
