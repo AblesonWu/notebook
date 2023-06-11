@@ -13,11 +13,49 @@
 
 # HomeBrew
 
-安装HomeBrew 到管理工具
+如果使用官网安装HomeBrew在下载包时会非常的慢，可以按照下面的步骤自动安装国内源，会加快下载速度。:muscle:
 
-```bash
-$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+## 自动安装
+
+<span style="font-weight:bolder;font-size:1.2rem;text-decoration:underline">苹果电脑 常规安装脚本（推荐 完全体 几分钟安装完成）：</span>
+
+```cmd
+/bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
 ```
+
+<span style="font-weight:bolder;font-size:1.2rem;text-decoration:underline">苹果电脑 极速安装脚本（精简版 几秒钟安装完成）：</span>
+
+```cmd
+/bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)" speed
+```
+
+-> [Mac电脑如何打开终端：command+空格 在聚焦搜索中输入terminal回车](https://link.juejin.cn/?target=https%3A%2F%2Flink.zhihu.com%2F%3Ftarget%3Dhttps%3A%2F%2Fsupport.apple.com%2Fzh-cn%2Fguide%2Fterminal%2Fapd5265185d-f365-44cb-8b09-71a064a42125%2Fmac)。
+
+**苹果电脑 卸载脚本：**
+
+```cmd
+/bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/HomebrewUninstall.sh)"
+```
+
+**常见错误**去下方[地址](https://link.juejin.cn/?target=https%3A%2F%2Fgitee.com%2Fcunkai%2FHomebrewCN%2Fblob%2Fmaster%2Ferror.md)查看
+
+```cmd
+https://gitee.com/cunkai/HomebrewCN/blob/master/error.md
+```
+
+**Linux电脑** 安装脚本：
+
+```cmd
+rm Homebrew.sh ; wget https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh ; bash Homebrew.sh
+```
+
+**Linux电脑** 卸载脚本：
+
+```cmd
+rm HomebrewUninstall.sh ; wget https://gitee.com/cunkai/HomebrewCN/raw/master/HomebrewUninstall.sh ; bash HomebrewUninstall.sh
+```
+
+> 如果遇到 SSL certificate problem: certificate has expired 错误 具体内容如下： Cloning into '/usr/local/Homebrew'... fatal: unable to access '[mirrors.ustc.edu.cn/bre](https://link.juejin.cn/?target=http%3A%2F%2Flink.zhihu.com%2F%3Ftarget%3Dhttps%3A%2F%2Fmirrors.ustc.edu.cn%2Fbrew.git%2F)': SSL certificate problem: certificate has expired m此步骤失败 '尝试再次运行自动脚本选择其他下载源或者切换网络' [问题分析]： 该部分原因可能因为在此之前 安装过Git客户端 默认Git客户端安装是开启SSL证书验证功能 需要在终端中关闭该验证 [解决办法] : 前面都不是重点，重点是问题描述里面的最后一句 certificate problem: certificate has expired，意思是证书过期了。其实就是SSL卡住了你，因此最快的解决方法就是关掉SSL验证。 终端输入下方代码 关闭SSL证书验证： git config --global http.sslVerify false
 
 
 
