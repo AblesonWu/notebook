@@ -22,12 +22,6 @@
     ],
     "description": "Insert a simple table"
   },
-	"Insert a span": {
-		"prefix": "span",
-		"scope": "markdown",
-		"body": "<span style=\"font-size:${2|1rem,1.125rem,1.25rem,1.35rem|};color:${3|#27ae60,#e67e22,#16a085,#f39c12,#8e44ad,#2980b9|};font-weight:${4|bolder,normal,bold|}\">$1</span>",
-		"description": "Insert a span"
-	},
 	"Insert a collapse snippet": {
 		"prefix": "collapse",
 		"scope": "markdown",
@@ -98,5 +92,175 @@
 		"scope": "markdown",
 		"body": "`$1`$2",
 		"description": "add inline code"
-	}
+	},
+	/// ============= COLOR SNIPPETS ============= ///
+	"color-dark-cyan": {
+		"prefix": "c-d-cyan",
+		"scope": "markdown",
+		"body": "#16a085",
+		"description": "深青色"
+	},
+	"color-light-cyan": {
+		"prefix": "c-l-cyan",
+		"scope": "markdown",
+		"body": "#1abc9c",
+		"description": "浅青色"
+	},
+	"color-dark-green": {
+		"prefix": "c-d-green",
+		"scope": "markdown",
+		"body": "#27ae60",
+		"description": "深绿色"
+	},
+	"color-light-green": {
+		"prefix": "c-l-green",
+		"scope": "markdown",
+		"body": "#2ecc71",
+		"description": "浅绿色"
+	},
+	"color-dark-blue": {
+		"prefix": "c-d-blue",
+		"scope": "markdown",
+		"body": "#2980b9",
+		"description": "深蓝色"
+	},
+	"color-light-blue": {
+		"prefix": "c-l-blue",
+		"scope": "markdown",
+		"body": "#3498db",
+		"description": "浅蓝色"
+	},
+	"color-dark-purple": {
+		"prefix": "c-d-purple",
+		"scope": "markdown",
+		"body": "#8e44ad",
+		"description": "深紫色"
+	},
+	"color-light-purple": {
+		"prefix": "c-l-purple",
+		"scope": "markdown",
+		"body": "#9b59b6",
+		"description": "浅紫色"
+	},
+	"color-dark-yellow": {
+		"prefix": "c-d-yellow",
+		"scope": "markdown",
+		"body": "#f39c12",
+		"description": "深黄色"
+	},
+	"color-light-yellow": {
+		"prefix": "c-l-yellow",
+		"scope": "markdown",
+		"body": "#f1c40f",
+		"description": "浅黄色"
+	},
+	"color-dark-orange": {
+		"prefix": "c-d-orange",
+		"scope": "markdown",
+		"body": "#d35400",
+		"description": "深橙色"
+	},
+	"color-light-orange": {
+		"prefix": "c-l-orange",
+		"scope": "markdown",
+		"body": "#e67e22",
+		"description": "浅橙色"
+	},
+	"color-dark-red": {
+		"prefix": "c-d-red",
+		"scope": "markdown",
+		"body": "#c0392b",
+		"description": "深红色"
+	},
+	"color-light-red": {
+		"prefix": "c-l-red",
+		"scope": "markdown",
+		"body": "#e74c3c",
+		"description": "浅红色"
+	},
+	"color-dark-grey": {
+		"prefix": "c-d-grey",
+		"scope": "markdown",
+		"body": "#7f8c8d",
+		"description": "深灰色"
+	},
+	"color-light-grey": {
+		"prefix": "c-l-grey",
+		"scope": "markdown",
+		"body": "#95a5a6",
+		"description": "浅灰色"
+	},
+	"color-dark-black": {
+		"prefix": "c-d-black",
+		"scope": "markdown",
+		"body": "#2c3e50",
+		"description": "深黑色"
+	},
+	"color-light-black": {
+		"prefix": "c-l-black",
+		"scope": "markdown",
+		"body": "#34495e",
+		"description": "浅黑色"
+	},
+	/// ============= SPAN SNIPPETS ============= ///
+	"Insert a span": {
+		"prefix": "span",
+		"scope": "markdown",
+		"body": "<span style=\"font-size:${2|1rem,1.125rem,1.25rem,1.35rem|};color:${3|#27ae60,#e67e22,#16a085,#f39c12,#8e44ad,#2980b9|};font-weight:${4|bolder,normal,bold|};font-style:${5|inherit,italic,oblique|}\">$1</span>",
+		"description": "Insert a span"
+	},
+	"yello span": {
+		"prefix": "yellow-span",
+		"scope": "markdown",
+		"body": "<span style=\"font-size:${2|1rem,1.125rem,1.25rem,1.35rem|};color:#f1c40f;font-weight:${3|bolder,normal,bold|};font-style:${4|inherit,italic,oblique|}\">$1</span>",
+		"description": "yellow span"
+	},
+	"orange span": {
+		"prefix": "orange-span",
+		"scope": "markdown",
+		"body": "<span style=\"font-size:${2|1rem,1.125rem,1.25rem,1.35rem|};color:#e67e22;font-weight:${3|bolder,normal,bold|};font-style:${4|inherit,italic,oblique|}\">$1</span>",
+		"description": "orange span"
+	},
+	"red span": {
+		"prefix": "red-span",
+		"scope": "markdown",
+		"body": "<span style=\"font-size:${2|1rem,1.125rem,1.25rem,1.35rem|};color:#e74c3c;font-weight:${3|bolder,normal,bold|};font-style:${4|inherit,italic,oblique|}\">$1</span>",
+		"description": "red span"
+	},
+	"grey span": {
+		"prefix": "red-span",
+		"scope": "markdown",
+		"body": "<span style=\"font-size:${2|1rem,1.125rem,1.25rem,1.35rem|};color:#95a5a6;font-weight:${3|bolder,normal,bold|};font-style:${4|inherit,italic,oblique|}\">$1</span>",
+		"description": "grey span"
+	},
+	"green span": {
+		"prefix": "green-span",
+		"scope": "markdown",
+		"body": "<span style=\"font-size:${2|1rem,1.125rem,1.25rem,1.35rem|};color:#2ecc71;font-weight:${3|bolder,normal,bold|};font-style:${4|inherit,italic,oblique|}\">$1</span>",
+		"description": "green span"
+	},
+	"blue span": {
+		"prefix": "blue-span",
+		"scope": "markdown",
+		"body": "<span style=\"font-size:${2|1rem,1.125rem,1.25rem,1.35rem|};color:#3498db;font-weight:${3|bolder,normal,bold|};font-style:${4|inherit,italic,oblique|}\">$1</span>",
+		"description": "blue span"
+	},
+	"purple span": {
+		"prefix": "purple-span",
+		"scope": "markdown",
+		"body": "<span style=\"font-size:${2|1rem,1.125rem,1.25rem,1.35rem|};color:#9b59b6;font-weight:${3|bolder,normal,bold|};font-style:${4|inherit,italic,oblique|}\">$1</span>",
+		"description": "purple span"
+	},
+	"cyan span": {
+		"prefix": "cyan-span",
+		"scope": "markdown",
+		"body": "<span style=\"font-size:${2|1rem,1.125rem,1.25rem,1.35rem|};color:#1abc9c;font-weight:${3|bolder,normal,bold|};font-style:${4|inherit,italic,oblique|}\">$1</span>",
+		"description": "cyan span"
+	},
+	"black span": {
+		"prefix": "black-span",
+		"scope": "markdown",
+		"body": "<span style=\"font-size:${2|1rem,1.125rem,1.25rem,1.35rem|};color:#1abc9c;font-weight:${3|bolder,normal,bold|};font-style:${4|inherit,italic,oblique|}\">$1</span>",
+		"description": "black span"
+	},
 }
