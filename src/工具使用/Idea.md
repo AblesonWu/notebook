@@ -39,7 +39,7 @@ Windows: `Ctrl + Alt + O`
 
 <span style="font-size:1.125rem;color:#e67e22;font-weight:bold">Settings -> Editor -> Appearance -> Show line numbers 取消勾选</span>
 
-### 2. 浮动目录
+## 2. 浮动目录
 
 使用浮动目录的灵感来自于 NeoVim。使用浮动目录窗口的好处是当查看目录目录结构时，代码编辑区域窗口的大小不用改变，从而不会分散人的注意力；同时将目录窗口移到中间，不用在大屏移动脖子。
 具体设置方法如下：
@@ -49,3 +49,26 @@ Windows: `Ctrl + Alt + O`
 <span style="font-size:1.125rem;color:#e67e22;font-weight:bold;font-style:italic">打开目录窗口（快捷键：Command + 1）-> 选中该窗口右上角三个点 -> 点击 <code>View Mode</code> 选择 <code>Window</code></span>
 
 _注意： 这里还有一个选项：`Float`，区别是：当选择 Window 时，如果用户进入目录，选择文件并按 Enter 后目录窗口会自动关闭；如果选择 Float，则目录窗口会一直打开。_
+
+
+## 3. 字体
+
+可以按照个人便好自定义字体，这里推荐使用 Cascadian Mono 字体。<a href="https://github.com/microsoft/cascadia-code" style="text-decoration:underline;color: #27ae60">https://github.com/microsoft/cascadia-code</a>
+
+<span style="font-size:1.125rem;color:#2ecc71;font-weight:normal;font-style:inherit">1. 编辑区字体设置</span>
+
+在Idea中的配置位置：<span style="font-size:1rem;color:#e67e22;font-weight:normal;font-style:oblique">Settings -> Editor -> General -> Font</span>
+
+- 字体选择（Font）：`Cascadian Mono`
+- 字体大小（Size）：`13.5`
+- 字重（Main weight）: `Light`
+
+<span style="font-size:1.125rem;color:#2ecc71;font-weight:normal;font-style:inherit">2. 控制台字体设置</span>
+
+在Idea中的配置位置：<span style="font-size:1rem;color:#e67e22;font-weight:normal;font-style:oblique">Settings -> Editor -> Color Schema -> Console Font</span>
+
+
+## 4. 主题
+
+主题也可以按照个人便好自主设置，这里推荐使用 Monokao Pro Theme。 <a href="https://plugins.jetbrains.com/plugin/13643-monokai-pro-theme" style="text-decoration:underline;color: #27ae60">https://plugins.jetbrains.com/plugin/13643-monokai-pro-theme</a>
+
