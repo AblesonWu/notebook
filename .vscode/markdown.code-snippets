@@ -25,7 +25,7 @@
 	"Insert a span": {
 		"prefix": "span",
 		"scope": "markdown",
-		"body": "<span style=\"font-size:${2|1rem,1.125rem,1.25rem,1.35rem|};color:${3:#8e44ad};font-weight:${4|bolder,normal,bold|}\">$1</span>",
+		"body": "<span style=\"font-size:${2|1rem,1.125rem,1.25rem,1.35rem|};color:${3|#27ae60,#e67e22,#16a085,#f39c12,#8e44ad,#2980b9|};font-weight:${4|bolder,normal,bold|}\">$1</span>",
 		"description": "Insert a span"
 	},
 	"Insert a collapse snippet": {
@@ -92,5 +92,11 @@
 		"scope": "markdown",
 		"body": "<div style=\"margin-top: ${1|2,3,4,5,6,7|}em\"></div>",
 		"description": "add space between block"
+	},
+	"add inline code": {
+		"prefix": "inline code",
+		"scope": "markdown",
+		"body": "`$1`$2",
+		"description": "add inline code"
 	}
 }
