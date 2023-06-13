@@ -142,3 +142,30 @@ Vue.volar
 # IV. 代码片段（Snippets）
 
 💪  [VSCode 创建自定义代码片段](https://juejin.cn/post/7238230111941394488)
+
+
+# 配置
+
+## Eslint 配置
+
+1. 安装`Eslint`插件
+2. 配置
+
+```json
+{
+	"eslint.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact"
+  ],
+  "eslint.workingDirectories": [
+    "./ui.frontend"
+  ],
+  "eslint.lintTask.options": "-c C:/Users/ranlai.a.wu/develop/aem-cathay/ui.frontend/.eslintrc.js --ignore-path C:/Users/ranlai.a.wu/develop/aem-cathay/ui.frontend/.eslintignore"
+}
+```
+
+*参考文档：* https://www.cnblogs.com/yayoi/p/12455529.html
+
+
+
