@@ -123,9 +123,9 @@ Vue.volar
 
   Monokar Pro 下包含 4 个扩展主题：`Filter Machine, Filter Octagon, Filter Spectron, Filter Risttro`
 
-## 字体
+## 字体(Font)
 
-使用：`Cascadia Mono`
+使用：`Cascadia Mono` - <a href="https://github.com/microsoft/cascadia-code" style="text-decoration:underline;color: #27ae60">https://github.com/microsoft/cascadia-code</a>
 
 配置：
 

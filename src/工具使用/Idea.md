@@ -31,6 +31,27 @@ Windows: `Ctrl + Alt + O`
 | :-------------------------------------------------------------------------------------------------------: | :----------: | :------------: |
 | **选中当前整个 Field.** 即指针定位到将要选中文字的任意位置，然后使用快捷键快速选中整个字段，并进行修改删除操作 |  `Ctr + G`   |                |
 
+
+## 4. 分屏
+
+分屏操作包括：竖向和横向分屏； 除了分屏之外还要设置如何在分屏之间切换的快捷键
+
+- <span style="font-size:1rem;color:#2ecc71;font-weight:bolder;font-style:inherit">竖向切分</span> - 快捷键： `Alt + Shift + |` - 配置属性：<span style="font-size:1rem;color:#e67e22;font-weight:normal;font-style:italic">Split Right</span>
+
+- <span style="font-size:1rem;color:#2ecc71;font-weight:bolder;font-style:inherit">横向切分</span> - 快捷键：`Alt  + |` - 配置属性：<span style="font-size:1rem;color:#e67e22;font-weight:normal;font-style:italic">Split Down</span>
+
+- <span style="font-size:1rem;color:#2ecc71;font-weight:bolder;font-style:inherit">切换到下一个分屏</span> - 快捷键：`Alt + ]` - 配置属性：<span style="font-size:1rem;color:#e67e22;font-weight:normal;font-style:italic">Goto Next Spliter</span>
+
+- <span style="font-size:1rem;color:#2ecc71;font-weight:bolder;font-style:inherit">切换到上一个分屏</span> - 快捷键：`Alt + [` - 配置属性：<span style="font-size:1rem;color:#e67e22;font-weight:normal;font-style:italic">Goto Previous Spliter</span>
+
+## 5. 其他常用
+
+### 1. 关闭Tab
+
+关闭当前打开的文件，为了保持和Mac一直，设置为 `Alt + W`。  
+配置的属性： <span style="font-size:1rem;color:#e67e22;font-weight:bolder;font-style:italic">Close Tab</span>
+
+
 # 2. 美化
 
 ## 1. 隐藏行号
