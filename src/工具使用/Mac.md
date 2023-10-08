@@ -2,12 +2,17 @@
 
 > ####  1.在Mac上调试苹果手机上safari浏览器页面：
 
-1. On your iPad, iPhone or iPod, go to Settings > Safari > Advanced and toggle on Web Inspector.
-2. On your Mac, open Safari and go to Safari > Preferences > Advanced then check Show Develop menu in menu bar.
-3. Connect your iOS device to your Mac with the USB cable.
-4. On your Mac, restart Safari.
-5. On your iOS device, open the web site that you want to debug.
-6. On your Mac, open Safari and go to the Develop menu. You will now see the iOS device you connected to your Mac.
+On your iPad, iPhone or iPod, go to Settings > Safari > Advanced and toggle on Web Inspector.
+
+On your Mac, open Safari and go to Safari > Preferences > Advanced then check Show Develop menu in menu bar.
+
+Connect your iOS device to your Mac with the USB cable.
+
+On your Mac, restart Safari.
+
+On your iOS device, open the web site that you want to debug.
+
+On your Mac, open Safari and go to the Develop menu. You will now see the iOS device you connected to your Mac.
 
 
 
@@ -365,3 +370,14 @@ bind Escape copy-mode
 1. 新建竖直 `pane` 面板，先按住 `Ctrl + A`, 松开，然后再按 `|`
 2. 新建水平 `pane` 面板，先按住 `Ctrl + A`, 松开，然后再按 `-`
 3. `pane` 面板的切换可以先按住 `Ctrl + A`，再加上 `j(上)` 或 `k(下)` 或 `h(左)` 或 `l(右)`
+
+# Mysql
+
+使用HomeBrew执行安装命令：`brew install mysql`
+
+该命令在执行过程中，会设置环境变量，配置初始化密码以及启动服务等操作。
+
+启动Mysql服务： `brew services start mysql`
+
+1. 在默认情况下，root的密码为空，需要使用命令 `mysql_secure_installation` 进行配置
+1. 

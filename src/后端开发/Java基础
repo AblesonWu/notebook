@@ -58,7 +58,7 @@ jenv enable-plugin maven
 jenv add $HOME/java/jdk11
 ```
 
-查看JDK版本， 执行`jenv version`
+查看JDK版本， 执行`jenv versions`
 
 ```txt
  system
