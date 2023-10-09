@@ -19,6 +19,56 @@
 </div>
 ```
 
+## 3. Flex 左边元素定款，右边元素占满余下部分
+
+```html 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .flex{
+            display: flex;
+            height: 100px;
+        }
+        .left{
+            flex:0 0 100px;
+            background: red;
+        }
+        .right{
+            flex:1;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>
+```
+
+对于flex属性： `flex-grow, flex-shrink, flex-basis` 默认值为 `0 1 auto`, 后两个元素可选
+
+1. `flex-grow` 定义对额外空间的占有量，默认值为0，表示不占有剩余空间
+2. `flex-shrink` 表示当空间不足时，元素缩小比例
+3. `flex-basis` 表示元素占据的空间
+
+常用值：
+
+1. flex: auto, 等用于 flex: 1 1 auto; 表示占据剩余空间，可放缩
+2. flex: none, 等同于 flex: 0 0 auto; 表示不占据剩余空间，不可放缩
+
+
 css 样式修改内联样式：
 
 ```css
