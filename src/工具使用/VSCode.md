@@ -171,3 +171,27 @@ Vue.volar
 
 # Task
 
+
+
+# 具体配置
+
+## Java
+
+```json
+// 在settings.json 中配置
+{
+  "java.server.launchMode": "Standard",
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-11",
+      "path": "C:\\Develop\\Softwares\\Java\\jdk11",
+      "default": true
+    }
+  ],
+  "java.compile.nullAnalysis.mode": "automatic"
+}
+```
+
+##  Maven
+
+- [VSCode 进行Java开发](https://zhuanlan.zhihu.com/p/583363069)

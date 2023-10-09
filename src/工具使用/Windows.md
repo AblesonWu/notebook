@@ -26,3 +26,10 @@ tasklist | findstr 进程号
 ```shell 
 taskkill -PID 进程号 -F
 ```
+
+
+
+# Bash 脚本编程
+
+- [WIndows bat 批处理基础命令教程](https://cloud.tencent.com/developer/article/2118950)
+- [Bat批处理教程](https://www.w3cschool.cn/dosmlxxsc1/wvqyr9.html)
