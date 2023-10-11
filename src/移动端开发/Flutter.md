@@ -1,4 +1,5 @@
 ---
+typora-root-url: ./../../assets\images\flutter
 typora-copy-images-to: ../../assets/images/flutter
 ---
 
@@ -10,7 +11,33 @@ VSCode 配置：
 - Dart
 - Dart Data Class Generator <hzgood>
 
-# link
+
+
+# Text
+
+Text组件的基本使用：
+
+```dart
+const Text(String data,{
+    Key key,
+    TextStyle style,
+    StrutStyle strutStyle,
+    TextAlign textAlign,
+    TextDirection textDirection,
+    TextOverflow overflow,
+    bool softWrap,
+    double textScaleFactor,
+    int maxLines,
+    String semanticsLabel,
+    TextWidthBasis textWidthBasis,
+    TextHeightBehavior textHeightBehavior
+    }
+)
+```
+
+
+
+## 链接
 
 使用Flutter 模拟HTML中的 link 标签。
 
@@ -39,4 +66,28 @@ RichText(
 ),
 ```
 
-![flutter link](../../assets/images/flutter/flutter-link.png)
+![flutter link](./flutter-link.png)
+
+## 组合其他组件
+
+在Text组件中添加其他组件可以借助 `WidgetSpan` 实现：
+
+```dart
+Text.rich(
+  TextSpan(
+    style: Theme.of(context).textTheme.bodyLarge,
+    children: const [
+      TextSpan(text: "Click", style: TextStyle(fontSize: 15)),
+      WidgetSpan(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 1.0),
+          child: Icon(Icons.add, color: Colors.red),
+        ),
+      ),
+      TextSpan(text: '\tto add', style: TextStyle(fontSize: 25))
+    ],
+  ),
+),
+```
+
+![image-20231010114025652](./image-20231010114025652.png)

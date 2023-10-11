@@ -143,37 +143,11 @@ Vue.volar
 
 💪  [VSCode 创建自定义代码片段](https://juejin.cn/post/7238230111941394488)
 
-
-# 配置
-
-## Eslint 配置
-
-1. 安装`Eslint`插件
-2. 配置
-
-```json
-{
-	"eslint.enable": true,
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact"
-  ],
-  "eslint.workingDirectories": [
-    "./ui.frontend"
-  ],
-  "eslint.lintTask.options": "-c C:/Users/ranlai.a.wu/develop/aem-cathay/ui.frontend/.eslintrc.js --ignore-path C:/Users/ranlai.a.wu/develop/aem-cathay/ui.frontend/.eslintignore"
-}
-```
-
-*参考文档：* https://www.cnblogs.com/yayoi/p/12455529.html
+# V. Task
 
 
 
-# Task
-
-
-
-# 具体配置
+# VI. 详细配置
 
 ## Java
 
@@ -195,3 +169,94 @@ Vue.volar
 ##  Maven
 
 - [VSCode 进行Java开发](https://zhuanlan.zhihu.com/p/583363069)
+
+
+
+## **Flutter**
+
+当使用Flutter进行Web开发时，如果进行http请求，在正常情况下会报错。这时需要关闭浏览器安全策略才可以正常访问。
+
+- 使用Terminal开启客户端： `flutter run -d chrome --web-browser-flag "--disable-web-security"`
+- 使用Debug的方式。 配置 `launch.json`
+
+```json
+{
+  "name": "flutter_app",
+  "request": "launch",
+  "type": "dart",
+  "args": ["--web-browser-flag", "--disable-web-security"]
+},
+```
+
+
+
+## ESLint
+
+1. 安装`Eslint`插件
+2. 配置
+
+```json
+{
+	"eslint.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact"
+  ],
+  "eslint.workingDirectories": [
+    "./ui.frontend"
+  ],
+  "eslint.lintTask.options": "-c C:/Users/ranlai.a.wu/develop/aem-cathay/ui.frontend/.eslintrc.js --ignore-path C:/Users/ranlai.a.wu/develop/aem-cathay/ui.frontend/.eslintignore"
+}
+```
+
+*参考文档*：  https://www.cnblogs.com/yayoi/p/12455529.html
+
+## Prettier	
+
+1. 安装 `Prettier` 插件
+2. 设置 `.js .ts .jsx .tsx .less .css .json` 格式的文件都采用 `prettier-vscode` 插件进行格式化
+
+```json
+{
+    "[javascript]": {
+	"editor.defaultFormatter": "esbenp.prettier-vscode"
+     },
+    "[typescript]": {
+	"editor.defaultFormatter": "esbenp.prettier-vscode"
+     },
+    "[javascript|react]": {
+	"editor.defaultFormatter": "esbenp.prettier-vscode"
+     },
+    "[typescript|react]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+     },
+    "[less]": {
+         "editor.defaultFormatter": "esbenp.prettier-vscode"
+     },
+     "[css]": {
+         "editor.defaultFormatter": "esbenp.prettier-vscode"
+     },
+     "[json]": {
+	 "editor.defaultFormatter": "esbenp.prettier-vscode"
+     }
+}
+```
+
+3. 配置 `prettier` 插件使用那个配置文件，默认是根目录下的 `.prettier` 文件
+
+```json
+{
+    "prettier.configPath": ".prettierrc.js",
+}
+```
+
+
+
+# VII. 快捷键
+
+## 1. 自动修复
+
+| Command                  | Mac           | WIndows               |
+| ------------------------ | ------------- | --------------------- |
+| `editor.action.quickFix` | `Command + .` | `Alt + Shift + Enter` |
+
