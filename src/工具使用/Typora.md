@@ -29,6 +29,147 @@
 
 
 
+# 插件开发
+
+由于Typora 在Markdown支持方面还有很多方面的不足，同时也没有提供插件方面的功能。为了添加各种功能，这里尝试记录下开发自定义 插件。
+
+## 功能分析
+
+1. 在Typora软件的根目录下，建立一个 `install.sh` 文件，用户点击的时候可以从网上下载配置文件
+
+```txt
+1. 校验当前install.sh 文件的位置是否在Typora的根目录下
+2. 选择是 Install/Uninstall 插件
+3. 选择Install之后
+	 a. 选择Typora版本，并根据对应的下载相应的配置文件
+   a. 备份 resource/window.html 文件，并替换为新的修改后 window.html 文件
+   b. 在 resources 目录下创建 plugin 文件，包括 plugin的入口文件 plugin/index.js, 包括插件的注册与管理等核心功能，还有 需要修改的样式文件
+4. 选择 Uninstall 之后
+	a. 将 window.html 文件替换为备份的文件
+	b. 删除 plugin文件夹，以及用户根目录下的 .typora 文件夹
+```
+
+2. 将 所有的插件都安装在用户根目录下的 `.typora` 文件夹内。
+
+```txt
+1. 每一个插件都应当是一个文件夹，基本结构如下：
+   	a. package.json 包括插件的版本信息等信息
+   	b. README.md 记录该插件的相关基本信息
+   	c. config.json  该插件的默认配置信息
+2. 除了插件内容外，还需要保存全局用户配置信息文件 config.global.json
+```
+
+3. 考虑到随着插件的增加，会影响到Typora加载时间，以及运行性能。所以在初始时windows.html 中仅仅添加插件管理页面
+
+```txt
+插件管理：
+	1. 插件管理页面放置在 管理文件夹中。
+	2. 当用户打开插件管理页面时， 需要请求插件索引页面。
+	3. 页面提供快速搜索功能
+	4. 当点击任意插件时，打开插件详情页面
+	5. 详情也面中需要说明该插件的作用，以及如何配置该插件
+	
+加载：
+	1. 用户打开Typora并编辑文档时，插件不会影响功能，此时用户可以编辑任意文件。
+	2. 用户可以知道什么时候插件已经加载完毕
+
+核心插件：
+	1. 管理所有的插件，包括插件的注册，启用
+  2. 提供一些核心功能，包括： 全局命令上界面，通过命令行打开配置文件
+```
+
+	4. 下面这些是目前需要功能
+
+```txt
+1. Git
+2. 通过 / 快速打开命令行窗口
+```
+
+
+
+## 实现细节
+
+用户打开Typora, 运行核心插件文件，注册插件
+
+**1. 插件激活**
+
+a. 一启动Typora 就激活
+
+​	对于如：命令行窗口，需要在用户一起启动时候就要激活插件
+
+b. 不需要一启动就激活
+
+​	而对于其他一些插件不需要一开始就启动。
+
+- `onCommand: show.table` 通过在命令行窗口调用命令激活插件
+
+
+
+## 自定义命令窗口
+
+1. 覆盖 `Ctrl + P` 命令
+
+在Windows中，使用 `Ctrl + P` 命令是在新窗口打开文件，现在需要覆盖该行为， 从而实现在当前窗口打开文件，不仅更方便而且打开速度更快。
+
+```javascript
+document.addEventListener("keydown", (e) => {
+  if (e.ctrlKey && e.key === "p") {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    
+  }
+}, false);
+```
+
+
+
+
+
+## 样式文件
+
+```css
+/****************** Customize Config ******************/
+
+header #w-titlebar-left>#title-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*** 自定义滚动条 ***/
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    -ms-overflow-style: none;
+}
+
+content:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: rgba(0,0,0,0.3);
+    box-shadow: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: rgba(0,0,0,0.5);
+    box-shadow: rgba(0, 0, 0, 0.5);
+    background-color: transparent;
+}
+```
+
+
+
 # Mac 插件开发
 
 可以调用的函数或方法：

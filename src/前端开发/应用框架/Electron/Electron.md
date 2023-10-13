@@ -64,7 +64,7 @@ ipcRenderer.invoke(channel, ...args).then(result => {handleResult}); // 渲染�
 app, 用于控制应用声明周期
 
 BrowserWindow，用于创建和控制窗口
-  
+
 ```javascript
 const win = new BrowserWindow({width, height, ...}); // 创建窗口，并设置宽高
 win.loadURL(url);

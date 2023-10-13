@@ -3,7 +3,7 @@
 1.  Package to be used: `flutter_riverpod`
 2.  Inject `ProviderScope()`  at the root
 3.  Create Provider using `StateProvider()`
-4.  Consumer class extends `ConsumerWidget`
+4.  PConsumer class extends `ConsumerWidget`
 5.  Use `ref.read()`  to change the state
 
 

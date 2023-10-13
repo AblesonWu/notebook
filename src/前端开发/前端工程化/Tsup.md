@@ -1,3 +1,8 @@
+- 官方文档： https://tsup.egoist.dev/
+- 源码地址：https://github.com/egoist/tsup
+
+[TSUP](https://github.com/egoist/tsup) 是一个基于 [esbuild](https://github.com/evanw/esbuild)  的Typescript代码打包工具，特点是：零配置，
+
 
 
 **常用配置：**
