@@ -13,6 +13,28 @@ VSCode 配置：
 
 
 
+# Web 配置
+
+使用Flutter 开发Web项目时，如果需要进行HTTP请求需要关闭浏览器安全配置才能进行Debug
+
+```json
+// launch.json
+{
+  "name": "flutter_app",
+  "request": "launch",
+  "type": "dart",
+  "args": ["--web-browser-flag", "--disable-web-security"]
+}
+```
+
+使用命令行开启项目，需要运行下面命令：
+
+```bash
+flutter run -d chrome --web-browser-flag "--disable-web-security"
+```
+
+
+
 # Text
 
 Text组件的基本使用：
@@ -37,7 +59,7 @@ const Text(String data,{
 
 
 
-## 链接
+## 连接
 
 使用Flutter 模拟HTML中的 link 标签。
 
@@ -91,3 +113,22 @@ Text.rich(
 ```
 
 ![image-20231010114025652](./image-20231010114025652.png)
+
+# Input
+
+## Autocomplete
+
+
+
+
+
+## Form
+
+
+
+## FormField
+
+
+
+## RawKeyboardListener
+

@@ -1,6 +1,6 @@
 # 基础笔记
 
-## 1. 多版本管理
+### 1. 多版本管理
 
 JDK版本管理的主要目的是为了解决不同项目需要不同的JAVA版本。
 
@@ -88,6 +88,93 @@ jenv add $HOME/java/jdk11
     <name>阿里云公共仓库</name>
     <url>https://maven.aliyun.com/repository/public</url>
 </mirror>
+```
+
+
+
+## 3. VSCode进行Java开发
+
+**1. 插件**
+
+1. Extension Pack for Java - 这个插件包括：
+   1. Language Support for Java (TM)
+   2. Debugger for Java
+   3. Test Runner for Java
+   4. Maven for Java
+   5. Project Manager for Java
+   6. IntelliCode
+2. MybatisX
+3. MySQL
+4. XML Tools
+
+**2. 配置**
+
+使用VSCode 进行Java开发最重要的配置是知名JDK的运行路径：
+
+```json
+{
+  "java.server.launchMode": "Standard",
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-11",
+      "path": "/Users/ranwu/.jenv/versions/11.0",
+      "default": true
+    }
+  ]
+}
+```
+
+**3. Snippets代码片段**
+
+1. 在MyBatis 开发使用需要定义 mapper 和config需要配置XML文件
+
+```json
+{
+  "Create a MyBatis mapper": {
+    "prefix": "mybatis-mapper",
+    "body": [
+      "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
+      "<!DOCTYPE mapper",
+      "\t\tPUBLIC \"-//mybatis.org//DTD Mapper 3.0//EN\"",
+      "\t\t\"http://mybatis.org/dtd/mybatis-3-mapper.dtd\">",
+      "<mapper namespace=\"$1\">",
+      "$2",
+      "</mapper>"
+    ],
+    "description": "Create a MyBatis mapper"
+  },
+  "Create a MyBatis Configure": {
+    "prefix": "mybatis-config",
+    "body": [
+      "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
+      "<!DOCTYPE configuration",
+      "\t\tPUBLIC \"-//mybatis.org//DTD Config 3.0//EN\"",  
+      "\t\t\"http://mybatis.org/dtd/mybatis-3-config.dtd\">",  
+      "<configuration>",
+      "$1",
+      "</configuration>"
+    ],
+    "description": "Create a MyBatis configure"
+  }
+}
+```
+
+
+
+**4. Task 任务**
+
+1. 通过命令行启动Spring Boot项目
+
+```json
+{
+  "label": "springboot:run",
+  "type": "shell",
+  "command": "./mvnw spring-boot:run",
+  "options": {
+    "cwd": "${workspaceFolder}"
+  },
+  "group": "test",
+}
 ```
 
 
