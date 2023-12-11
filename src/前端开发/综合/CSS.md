@@ -17,6 +17,10 @@
 <div style="background: red;">
   The inline styles for this div should make it red
 </div>
+
+div[style] {
+   background: yellow !important;
+}
 ```
 
 ## 3. Flex 左边元素定款，右边元素占满余下部分
