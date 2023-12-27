@@ -221,16 +221,20 @@ function (e, t) {
 4. 运行命令
 
 `````javascript
-File.isMac ?
-new Promise(n => {
-	bridge.callHandler("controller.runCommand", {arg: e, cwd: ""})
-}, (e) => {
-	{
-		code: e[0],
-		message: e[1],
-		error: [2]
-	}
-})
+f = await function(e, t) {
+  return File.isNode ? v.runExportCommand(e, t) : File.isMac ? new Promise(n => {
+        bridge.callHandler("controller.runCommand", {
+            args: e,
+            cwd: t || ""
+        }, function(e) {
+            n({
+                code: e[0] ? 0 : -1,
+                message: e[1],
+                error: e[2]
+            })
+        })
+    }) : void 0
+}(u, h);
 `````
 
 ````javascript
