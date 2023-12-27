@@ -235,6 +235,23 @@ f = await function(e, t) {
         })
     }) : void 0
 }(u, h);
+
+# Example
+
+f = await function(e, t) {
+  return File.isNode ? v.runExportCommand(e, t) : File.isMac ? new Promise(n => {
+        bridge.callHandler("controller.runCommand", {
+            args: e,
+            cwd: t || ""
+        }, function(e) {
+            n({
+                code: e[0] ? 0 : -1,
+                message: e[1],
+                error: e[2]
+            })
+        })
+    }) : void 0
+}("git status -s | wc -l", File.getMountFolder());
 `````
 
 ````javascript
