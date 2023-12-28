@@ -194,3 +194,110 @@ String str = Optional.ofNullable(message).orElse("").replaceAll("(?<!^).", "*");
 String str1 = Optional.ofNullable(message).map(e -> e.replaceAll("(?<!^).", "*")).orElse("null");
 ```
 
+
+
+# 4. Optional
+
+用于简化Java判空操作。
+
+**1. 有三种构造方法**
+
+```java
+  /**
+   * 1. 创建一个空的Optional实例。
+   * 
+   * * 由于是对象类型，所以该实例不要用 == 进行比较。
+   * * 应该使用 isPresent() 或 ifPresent()
+   */
+  Optional<String> empty = Optional.empty();
+
+  /**
+   * 2. 创建特定非空 Optional 值
+   * 
+   * * 该方法传入的参数不能为 null，否则将发生 NullPointException
+   */
+  Optional<String> opt = Optional.of("java");
+
+/**
+   * 3. 返回可空的 Optional
+   * 
+   * 参数可以为 null, 如果是，则返回空值
+   */
+  String value = null;
+  Optional<String> optValue = Optional.ofNullable(getName());
+```
+
+
+
+**2. `ifPresent()`**
+
+接收一个 lambda表达式作为参数，如果属性存在值，则执行方法，否则不执行。
+
+```java
+Stream<String> names = Stream.of("Lamurudu", "Okanbi", "Oduduwa");
+Optional<String> longest = names.filter(name -> name.startsWith("L")).findFirst();
+
+longest.ifPresent(
+    name -> {
+      String s = name.toUpperCase();
+      System.out.println("The longest name is: " + s);
+    });
+```
+
+
+
+**3. `orElse() / orElseGet()`**
+
+- `orElse()` 接收一个值作为参数，如果属性存在，则直接返回属性；否则返回传入的值。
+- `orElseGet()` 该方法和 `orElse` 类似，不过传入的是一个方法; 同时该方法的***懒计算***的，即，只有属性为 null 才会参与计算
+
+```java
+Stream<String> names = Stream.of("Lamurudu", "Okanbi", "Oduduwa");
+Optional<String> longest = names.filter(name -> name.startsWith("L")).findFirst();
+
+String foo = longest.orElse("");
+String foo1 = longest.orElseGet(() -> "");
+```
+
+
+
+# 5. Map
+
+## 1. 排序
+
+对Map集合进行降序排列
+
+```java
+HashMap<String, List<String>> valueMap = new HashMap<>();
+valueMap.put("k1", List.of("a1", "a2"));
+valueMap.put("k3", List.of("c1", "c2"));
+valueMap.put("k2", List.of("d1", "d2"));
+
+Map<String, List<String>> result = valueMap.entrySet().stream()
+        .sorted(Map.Entry.<String, List<String>>comparingByKey().reversed())
+        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+```
+
+## 2. List to Map
+
+将List集合转化为Map集合。主要利用 `Collector::toMap` 方法
+
+```java
+ Map<String, String> resultMap =
+        list.stream()
+            .collect(
+                Collectors.toMap(
+                    Product::getId, Product::getName, (e, r) -> e, ConcurrentHashMap::new));
+```
+
+- `(e, r) -> e`  该方法参数主要用于解决当Map的key值出现冲突时，应当如何处理
+- `ConcurrentHashMap::new` 主要处理在多线程时，保证线程安全=
+
+## 3. 生成List
+
+生成固定数量的list
+
+```
+List<Integer> list = IntStream.rangeClosed(1, 10).boxed().toList();
+```
+

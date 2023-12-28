@@ -1,90 +1,14 @@
-# 多进程开发
-
-总所周知，JS是运行在单进程单线程上的。
-
-**这种架构所带来的优点是：**
-
-1. 没有锁、线程同步的问题。
-2. 由于较少的切换上下文，可以很好的提高CPU的使用率
-
-**同样这种结构也会带来一些不足：**
-
-1. 无法充分利用多核CPU服务器
-2. 单个进程的稳定性很难得到保证
-
-面对单进程单线程对多核CPU使用率不足的问题，可以启用多进程。Node提供了`child_process` 模块可以复制出多个进程
-
-## 1. 建立多进程
-
-在master文件中复制出多个worker服务器
-
-```javascript
-// worker.js
-const express = require('express');
-const PORT = Math.round((1 + Math.random()) * 1000);
-const app = express();
-app.get("/", function (req, res) {
-  res.status(200).set({'Content-Type': 'text/plain'});
-  res.send('Hello World!\n');
-});
-
-app.listen(PORT, function (){
-  console.log(`Server is running on ${PORT}`);
-});
-```
-
-根据计算机CPU多少创建多个进程
-
-```javascript
-// master.js
-const {fork} = require('child_process');
-const cpus = require('os').cpus();
-for (const _ of cpus) {
-  fork('./worker.js')
-}
-```
-
-在`shell` 中就可以看到多个进程被启动起来`ps aux |grep worker.js`
-
-> 这种工作模式被称为Master-Worker模式，即将进程分为主进程和工作进程。主进程负责任务调度或管理工作进程，而工作进程负责具体的业务处理。当主进程被停止时，工作进程也会自动停止。
-
-
-
-**除了使用`fork`创建子进程外，Node还提供了其他创建方式：**
-
-- [x] `spawn()` 
-- [x] `exec()`  除了可以创建子进程，还提供了一个回调函数，当子进程执行完毕执行该回调函数
-- [x] `execFile()`  可以传入一个JS文件用于创建进程
-- [x] `fork()` 
-
-各种不同创建方式：
-
-```javascript
-const {spawn, exec, execFile, fork} = require('child_process');
-spawn('node', ['worker.js']);
-exec('node worker.js', function(err, stdout, stderr) {
-  // some code
-});
-execFile('worker.js', function(err, stdout, stderr) {
-  // some code
-});
-fork('./worker.js'); 
-```
-
-> 使用`execFile`	创建子进程，如果是一个JS文件，则需要在首先添加下面代码：`#!/usr/bin/env node`
-
-## 2. 进程间通信
-
-
-
-# 2. `package.json`
+# 参考文档
 
 <font style="color:purple;font-size:1.5rem">References: </font>
 
 - [package.json 详细说明：https://www.pengfeixc.com/blogs/javascript/package-json](https://www.pengfeixc.com/blogs/javascript/package-json)
-- 
 
-### sideEffects字段
+
+
+
+
+# sideEffects字段
 
 `sideEffects: false`用于告知打包工具（webpack），当前项目`无副作用`，可以使用`tree shaking`优化。也可以是一个文件路径组成的数组，告知哪些文件`有副作用`，不可以使用`tree shaking`优化。
 
@@ -97,7 +21,7 @@ fork('./worker.js');
 
 由于`tree shaking`只在`production`模式生效，所以本地开发会一切正常，生产环境很难及时发现这个问题。当然， 样式文件使用`"import xxx;"`的方式引入，会进行保留。
 
-### files字段
+# files字段
 
 可选择的 `files` 字段，是一个文件匹配字符串，当你的包被安装为一个项目依赖时，被 `files` 字段指定的文件将会被包含。文件匹配采用的语法类似于 `.gitignore` 文件。忽略该字段，等价于 `["*"]`，表示包含所有文件。
 
@@ -109,7 +33,7 @@ fork('./worker.js');
 ],
 ```
 
-### main字段
+# main字段
 
 `package.json`文件有两个字段可以指定模块的入口文件：`main`和`exports`。比较简单的模块，可以只使用`main`字段，指定模块加载的入口文件。
 
@@ -136,7 +60,7 @@ import { something } from 'es-module-package';
 
 这时，如果用 CommonJS 模块的`require()`命令去加载`es-module-package`模块会报错，因为 CommonJS 模块不能处理`export`命令。
 
-### exports字段
+# exports字段
 
 `exports`字段的优先级高于`main`字段。它有多种用法。
 
@@ -258,7 +182,7 @@ import submodule from './node_modules/es-module-package/private-module.js';
 
 
 
-### types字段
+# types字段
 
 项目如果是用`TypeScript`写的，则需要`types`字段，对外暴露相关的类型定义。比如`dance-ui(ts编写的react组件库)`项目：
 
@@ -266,7 +190,7 @@ import submodule from './node_modules/es-module-package/private-module.js';
 "types": "./dist/index.d.ts",
 ```
 
-### config
+# config
 
 `config` 对象可以被用来配置 scripts 的参数，例如：
 
@@ -281,7 +205,7 @@ import submodule from './node_modules/es-module-package/private-module.js';
 
 可以在 [config](https://docs.npmjs.com/cli/v6/using-npm/config) 和 [scripts](https://docs.npmjs.com/cli/v6/using-npm/scripts) 获取更多信息。
 
-### dependencies
+# dependencies
 
 指定项目依赖，值为包名加上版本号。
 
@@ -334,7 +258,7 @@ import submodule from './node_modules/es-module-package/private-module.js';
 }
 ```
 
-### bin
+# bin
 
 很多包拥有一个或者多个可执行文件，并且希望安装在 PATH 中。npm 可以很简单的实现这个（实际上，就是使用这个特性安装的 npm 可执行文件）。
 
@@ -370,7 +294,7 @@ import submodule from './node_modules/es-module-package/private-module.js';
 
 最后，请确保 `bin` 字段引用的文件内容以 `#!/usr/bin/env node` 开头，用于指示该脚本的执行需要 node。
 
-### engines
+# engines
 
 可以指定一些运行环境，例如 node 和 npm：
 
