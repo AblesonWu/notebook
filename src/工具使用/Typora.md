@@ -180,7 +180,9 @@ content:hover::-webkit-scrollbar-thumb {
 2. 获取当前文件名。  `File.bundle.fileName` => `Typora.md`
 3. 获取当前文件的全路径。 `File.bundle.filePath`  => `/Users/ranwu/develop/notebook/src/工具使用/Typora.md`
 
-2. 获取当前文件所在目录。 `File.bundle.currentFolderPath` => `"/Users/ranwu/develop/notebook/src/工具使用"`
+4. 获取当前文件所在目录。 `File.bundle.currentFolderPath` => `"/Users/ranwu/develop/notebook/src/工具使用"`
+
+5. 用户根目录 `File.option.userPath`
 
 
 
@@ -215,6 +217,52 @@ function (e, t) {
 ```
 
 3. 在Finder中打开。 `window.bridge.callHandler("path.showInFinder", "/Users/ranwu/develop/notebook/src")`
+
+4. 运行命令
+
+`````javascript
+f = await function(e, t) {
+  return File.isNode ? v.runExportCommand(e, t) : File.isMac ? new Promise(n => {
+        bridge.callHandler("controller.runCommand", {
+            args: e,
+            cwd: t || ""
+        }, function(e) {
+            n({
+                code: e[0] ? 0 : -1,
+                message: e[1],
+                error: e[2]
+            })
+        })
+    }) : void 0
+}(u, h);
+
+# Example
+
+f = await function(e, t) {
+  return File.isNode ? v.runExportCommand(e, t) : File.isMac ? new Promise(n => {
+        bridge.callHandler("controller.runCommand", {
+            args: e,
+            cwd: t || ""
+        }, function(e) {
+            n({
+                code: e[0] ? 0 : -1,
+                message: e[1],
+                error: e[2]
+            })
+        })
+    }) : void 0
+}("git status -s | wc -l", File.getMountFolder());
+`````
+
+````javascript
+bridge.callHandler("quickOpen.query", e)
+````
+
+5. 查找目录下所有目录河文档
+
+```javascript
+bridge.callHandler("library.listDocsUnder", File.getMountFolder(), (e) => console.log(e))
+```
 
 
 
